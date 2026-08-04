@@ -2,19 +2,15 @@ import 'package:flutter/material.dart';
 import '../models/song_model.dart';
 import '../widgets/song_card.dart';
 
-
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
-
 
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
 
-
 class _SearchPageState extends State<SearchPage> {
   String _query = '';
-
 
   List<Song> get _results {
     if (_query.isEmpty) return [];
@@ -26,11 +22,9 @@ class _SearchPageState extends State<SearchPage> {
         .toList();
   }
 
-
   @override
   Widget build(BuildContext context) {
     final results = _results;
-
 
     return Scaffold(
       appBar: AppBar(

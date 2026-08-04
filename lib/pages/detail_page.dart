@@ -1,4 +1,3 @@
-// pages/detail_page.dart
 import 'package:flutter/material.dart';
 import '../models/song_model.dart';
 

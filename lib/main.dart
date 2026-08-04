@@ -1,6 +1,5 @@
-// main.dart
+import 'pages/main_navigation.dart';
 import 'package:flutter/material.dart';
-import 'pages/feed_page.dart';
 
 void main() {
   runApp(const VibeMusicApp());
@@ -22,7 +21,7 @@ class VibeMusicApp extends StatelessWidget {
           surface: Color(0xFF151922),
         ),
       ),
-      home: const FeedPage(),
+      home: const MainNavigation(),
     );
   }
 }
