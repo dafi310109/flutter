@@ -1,18 +1,21 @@
 import 'package:android/models/song_model.dart';
 import 'package:android/pages/favorite_page.dart' show FavoritePage;
+import 'package:android/providers/favorite_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
-  final List<Song> favoriteSongs;
-  final void Function(Song) onFavoriteToggle;
+  final List<Song> allSongs;
   const ProfilePage({
     super.key,
-    required this.favoriteSongs,
-    required this.onFavoriteToggle,
+    required this.allSongs,
   });
 
   @override
   Widget build(BuildContext context) {
+    final favProvider = context.watch<FavoriteProvider>();
+    final likeCount = favProvider.favoriteIds.length;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -46,7 +49,7 @@ class ProfilePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildStatItem('${favoriteSongs.length}','Liked'),
+                  _buildStatItem('$likeCount', 'Liked'),
                   Container(
                     width: 1,
                     height: 24,
@@ -63,18 +66,17 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            _buildMenuItem(Icons.favorite_rounded, 'Favourite Songs', 
-            onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FavoritePage(
-                    favoriteSongs: favoriteSongs,
-                    onFavoriteToggle: onFavoriteToggle,
+            _buildMenuItem(
+              Icons.favorite_rounded,
+              'Favourite Songs',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavoritePage(allSongs: allSongs),
                   ),
-                ),
-              );
-            }
+                );
+              },
             ),
             _buildMenuItem(Icons.history_rounded, 'Recently Played'),
             _buildMenuItem(Icons.storage_rounded, 'Clear Cache Data'),

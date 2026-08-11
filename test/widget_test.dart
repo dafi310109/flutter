@@ -12,7 +12,7 @@ import 'package:android/main.dart';
 void main() {
   testWidgets('App loads and renders FeedPage title', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const VibeMusicApp());
+    await tester.pumpWidget(const MyApp());
 
     // Verify that 'Discover Vibes' title is shown.
     expect(find.text('Discover Vibes'), findsOneWidget);

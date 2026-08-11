@@ -5,14 +5,7 @@ import '../widgets/song_card.dart';
 enum SortOption { defaultOrder, titleAZ, titleZA, artistAZ }
 
 class FeedPage extends StatefulWidget {
-  final List<Song> favoriteSongs;
-  final Function(Song) onFavoriteToggle;
-
-  const FeedPage({
-    super.key,
-    required this.favoriteSongs,
-    required this.onFavoriteToggle,
-  });
+  const FeedPage({super.key});
 
   @override
   State<FeedPage> createState() => _FeedPageState();
@@ -67,13 +60,8 @@ class _FeedPageState extends State<FeedPage> {
         itemCount: songs.length,
         itemBuilder: (context, index) {
           final song = songs[index];
-          final isFavorite = widget.favoriteSongs.contains(song);
-          return SongCard(
-            song: song,
-            isFavorite: isFavorite,
-            onFavoriteToggle: () => widget.onFavoriteToggle(song),
-          );
-        }
+          return SongCard(song: song);
+        },
       ),
     );
   }

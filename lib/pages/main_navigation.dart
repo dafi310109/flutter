@@ -31,15 +31,9 @@ class _MainNavigationState extends State<MainNavigation> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-    FeedPage(
-      favoriteSongs: favoriteSongs,
-      onFavoriteToggle: togleFavoriteSong,
-    ),
+    const FeedPage(),
     const SearchPage(),
-    ProfilePage(
-      favoriteSongs: favoriteSongs,
-      onFavoriteToggle: togleFavoriteSong,
-    ),
+    ProfilePage(allSongs: sampleSongs,),
   ];
 
     return Scaffold(
