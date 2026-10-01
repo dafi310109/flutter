@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
               backgroundImage: AssetImage('images/images.jpg'),
             ),
             const SizedBox(height: 16),
-            const Text('Ieatcheese',
+            const Text('DAFI',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Text('Music Enthusiast',

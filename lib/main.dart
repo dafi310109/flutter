@@ -1,3 +1,4 @@
+import 'package:android/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/favorite_provider.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Music App',
       theme: ThemeData.dark(),
-      home: const MainNavigation(),
+      home: const SplashScreen(),
     );
   }
 }
